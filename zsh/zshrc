@@ -1,0 +1,46 @@
+export ZSH=~/.oh-my-zsh
+ZSH_THEME="robbyrussell"
+COMPLETION_WAITING_DOTS="true"
+
+plugins=(
+  git mvn brew docker kubectl
+)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+export PATH=$HOME/bin:/opt/homebrew/bin:/usr/local/bin:$PATH
+
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+alias reload='source ~/.zshrc'
+
+alias cp='cp -iv'                           # Preferred 'cp' implementation
+alias mv='mv -iv'                           # Preferred 'mv' implementation
+alias mkdir='mkdir -pv'                     # Preferred 'mkdir' implementation
+alias ..='cd ../'                           # Go back 1 directory level
+alias biggest='BLOCKSIZE=1048576; du -x | sort -nr | head -10'
+alias ll='ls -lah'
+alias lll='ls -ltrah'
+alias top-commands='history | awk "{print $2}" | awk "{print $1}" |sort|uniq -c | sort -rn | head -10'      #show most popular commands
+alias work='cd ~/workspace'
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+alias sourcetree='open -a SourceTree .'
+alias whatsmyip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias weather="curl -4 wttr.in/Αθήνα"
+alias k="kubectl"
+
+alias rm-docker-images-none="docker image rm $(docker image ls|grep '<none>'|awk '{print $3}'|awk '{print}' ORS=' ')"
+
+welcome() {
+    echo -e ""; cal ;
+    echo -ne "Today is "; date #date +"Today is %A %D, and it is now %R"
+}
+welcome;
+
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

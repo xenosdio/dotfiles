@@ -1,0 +1,28 @@
+[core]
+	excludesfile = ~/.gitignore_global
+	editor = vim
+[user]
+	name = Dionysis Xenos
+[commit]
+	template = ~/.stCommitMsg
+	gpgsign = true
+[credential]
+	helper = store
+[color]
+	ui = true
+[push]
+	default = current
+[alias]
+	l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	f = fetch
+	s = status
+	co = checkout
+	pp = pull --prune --rebase
+	ggrep = grep --break --heading --line-number
+	continue = rebase --continue
+	abort = rebase --abort
+	fix = commit --fixup
+	who = shortlog -s --
+
+  	# list aliases
+  	la = "!git config -l | grep alias | cut -c 7-"
