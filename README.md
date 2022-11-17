@@ -38,3 +38,17 @@ After opening tmux install the plugins referenced in `.tmux.config` with:
 ```bash
 Ctrl-a I
 ```
+
+## iterm2 color scheme
+
+Via iTerm preferences:
+
+* Launch iTerm 2
+* Click on iTerm2 menu title
+* Select Preferences... option
+* Select Profiles
+* Navigate to Colors tab
+* Click on Color Presets
+* Click on Import
+* Select the [iterm2/gruvbox.itermcolors](iterm2/gruvbox.itermcolors) file
+* Click on Color Presets and choose a color scheme
